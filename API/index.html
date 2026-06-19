@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hệ Thống Quản Lý Thời Trang Nữ</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.min.css" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="header-banner text-center py-5 mb-4 shadow-sm">
+            <h1 class="fw-bold app-title"><i class="fa-solid fa-gem me-2"></i>Hệ Thống Quản Lý Thời Trang Nữ</h1>
+            <p class="text-muted mb-0"><i class="fa-solid fa-sparkles me-1"></i> Không gian quản lý trang phục và danh mục thiết kế cao cấp</p>
+        </div>
+
+        <div class="container">
+            <ul class="nav nav-pills nav-justified custom-tabs mb-4 p-1 rounded shadow-sm" id="managementTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active fw-bold" id="product-tab" data-bs-toggle="tab" data-bs-target="#product-panel" type="button" role="tab">
+                        <i class="fa-solid fa-shirt me-2"></i>Quản Lý Sản Phẩm
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-bold" id="category-tab" data-bs-toggle="tab" data-bs-target="#category-panel" type="button" role="tab">
+                        <i class="fa-solid fa-tags me-2"></i>Quản Lý Danh Mục
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="managementTabsContent">
+                <div class="tab-pane fade show active" id="product-panel" role="tabpanel">
+                    <div class="card p-4 custom-card mb-4">
+                        <h4 class="mb-4 form-card-title"><i class="fa-solid fa-feather-pointed me-2"></i>Thông tin sản phẩm thời trang</h4>
+                        <form id="productForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="bookName" class="form-label fw-bold"><i class="fa-solid fa-signature me-1 text-muted"></i> Tên sản phẩm</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-bag-shopping"></i></span>
+                                        <input type="text" autocomplete="off" class="form-control" id="bookName" placeholder="Váy lụa hai dây, Áo khoác Blazer..." />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="price" class="form-label fw-bold"><i class="fa-solid fa-coins me-1 text-muted"></i> Giá bán (đ)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-dollar-sign"></i></span>
+                                        <input type="number" autocomplete="off" class="form-control" id="price" placeholder="350000" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="productCategoryId" class="form-label fw-bold"><i class="fa-solid fa-folder-tree me-1 text-muted"></i> Danh mục trang phục</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-list-ul"></i></span>
+                                        <select class="form-select" id="productCategoryId">
+                                            <option value="" selected disabled>-- Chọn danh mục thời trang --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="description" class="form-label fw-bold"><i class="fa-solid fa-receipt me-1 text-muted"></i> Mô tả chi tiết (Chất liệu, Kích cỡ)</label>
+                                    <textarea class="form-control" id="description" rows="3" placeholder="Chất vải voan hàn mát mịn, freesize dưới 55kg..."></textarea>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3">
+                                <div>
+                                    <button type="button" class="btn btn-custom-success me-2" id="btnAddProduct"><i class="fa-solid fa-circle-plus me-1"></i> Thêm Sản Phẩm</button>
+                                    <button type="button" class="btn btn-custom-warning text-white" id="btnUpdateProduct" style="display: none;"><i class="fa-solid fa-square-check me-1"></i> Cập nhật</button>
+                                </div>
+                                <button type="button" class="btn btn-custom-info text-dark" id="btnResetProduct"><i class="fa-solid fa-broom me-1"></i> Làm mới</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <h3 class="mt-4 panel-list-title"><i class="fa-solid fa-rectangle-list me-2"></i>Danh sách trang phục</h3>
+                    <div class="table-responsive rounded shadow-sm mb-5">
+                        <table class="table custom-table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th><i class="fa-solid fa-hashtag me-1"></i> ID</th>
+                                    <th><i class="fa-solid fa-shirt me-1"></i> Tên sản phẩm</th>
+                                    <th><i class="fa-solid fa-folder me-1"></i> Danh mục</th>
+                                    <th><i class="fa-solid fa-tag me-1"></i> Giá</th>
+                                    <th><i class="fa-solid fa-file-lines me-1"></i> Mô tả sản phẩm</th>
+                                    <th class="text-end"><i class="fa-solid fa-sliders me-1"></i> Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productList"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="category-panel" role="tabpanel">
+                    <div class="card p-4 custom-card mb-4">
+                        <h4 class="mb-4 form-card-title"><i class="fa-solid fa-feather-pointed me-2"></i>Thông tin danh mục thời trang</h4>
+                        <form id="categoryForm">
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="categoryName" class="form-label fw-bold"><i class="fa-solid fa-signature me-1 text-muted"></i> Tên danh mục</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-heading"></i></span>
+                                        <input type="text" autocomplete="off" class="form-control" id="categoryName" placeholder="Đầm Dự Tiệc, Áo Kiểu Nữ, Chân Váy..." />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="categoryDescription" class="form-label fw-bold"><i class="fa-solid fa-receipt me-1 text-muted"></i> Mô tả danh mục</label>
+                                    <textarea class="form-control" id="categoryDescription" rows="3" placeholder="Bộ sưu tập các mẫu đầm thiết kế cao cấp dành cho phái nữ..."></textarea>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3">
+                                <div>
+                                    <button type="button" class="btn btn-custom-success me-2" id="btnAddCategory"><i class="fa-solid fa-circle-plus me-1"></i> Thêm Danh Mục</button>
+                                    <button type="button" class="btn btn-custom-warning text-white" id="btnUpdateCategory" style="display: none;"><i class="fa-solid fa-square-check me-1"></i> Cập nhật</button>
+                                </div>
+                                <button type="button" class="btn btn-custom-info text-dark" id="btnResetCategory"><i class="fa-solid fa-broom me-1"></i> Làm mới</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <h3 class="mt-4 panel-list-title"><i class="fa-solid fa-tags me-2"></i>Các dòng sản phẩm</h3>
+                    <div class="table-responsive rounded shadow-sm mb-5">
+                        <table class="table custom-table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th><i class="fa-solid fa-hashtag me-1"></i> ID</th>
+                                    <th><i class="fa-solid fa-tag me-1"></i> Tên danh mục</th>
+                                    <th><i class="fa-solid fa-file-lines me-1"></i> Mô tả</th>
+                                    <th class="text-end"><i class="fa-solid fa-sliders me-1"></i> Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoryList"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalViewDetailInfo" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content custom-modal">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="modalTitle"><i class="fa-solid fa-circle-info me-2"></i>Chi tiết thông tin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body fs-6" id="modalBodyDetails"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal"><i class="fa-solid fa-xmark me-1"></i> Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.min.js"></script>
+        
+        <script type="module" src="./js/main.js"></script>
+    </body>
+</html>

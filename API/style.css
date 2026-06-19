@@ -1,0 +1,180 @@
+/* ==========================================
+   1. CẤU HÌNH GỐC & CÁC CLASS CŨ CỦA BẠN (GIỮ NGUYÊN)
+   ========================================== */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fffafb; /* Nền hồng phấn siêu nhạt, sáng sủa và thanh lịch */
+    color: #4a3b3d;           /* Màu chữ tối tông nâu đỏ trầm để hợp với nền hồng */
+}
+.form-group {
+    margin-top: 10px;
+}
+.mr-item {
+    margin-right: 5px;
+}
+.txt-title {
+    color: #6c757d;
+    font-weight: 400;
+    font-size: 15px;
+}
+.txt-bold {
+    font-weight: bold;
+}
+.mr-btn {
+    margin-right: 3px;
+}
+.margin {
+    margin-right: 30px !important;
+}
+.margin-item {
+    margin-right: 20px !important;
+}
+.margin-left {
+    margin-left: 30px !important;
+}
+input,
+input::placeholder {
+    font: 13px/3 sans-serif;
+}
+.message-error {
+    margin-top: 2px;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: italic;
+    color: red;
+}
+select option {
+    color: #555;
+}
+.form-select {
+    color: #6c757d !important;
+}
+table tbody {
+    counter-reset: rowNumber;
+}
+table tbody tr {
+    counter-increment: rowNumber;
+}
+table tbody tr td:first-child::before {
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+
+/* ==========================================
+   2. GIAO DIỆN TÔNG HỒNG NHẠT PASTEL NỮ TÍNH (CẬP NHẬT)
+   ========================================== */
+
+/* Banner tiêu đề trên cùng */
+.header-banner {
+    background: linear-gradient(135deg, #fff0f2 0%, #fcdce2 100%);
+    border-bottom: 3px solid #f7b5c2;
+}
+.app-title {
+    color: #b3596a;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Định dạng lại Menu Tabs điều hướng */
+.custom-tabs {
+    background-color: #f7d5db;
+}
+.custom-tabs .nav-link {
+    color: #8c4b57;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.custom-tabs .nav-link:hover {
+    color: #5e2832;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.custom-tabs .nav-link.active {
+    background-color: #b3596a !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(179, 89, 106, 0.2);
+}
+
+/* Định dạng các khối Card chứa form nhập liệu */
+.custom-card {
+    background-color: #ffffff;
+    border: 1px solid #f7b5c2;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(245, 200, 205, 0.2) !important;
+}
+.form-card-title, .panel-list-title {
+    color: #b3596a;
+    font-weight: 600;
+}
+
+/* Tùy biến lại các ô nhóm Input, Select */
+.input-group-text {
+    background-color: #fff0f2;
+    border-color: #ebc0c7;
+    color: #b3596a;
+}
+.form-control, .form-select {
+    border-color: #ebc0c7;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #b3596a;
+    box-shadow: 0 0 0 0.25rem rgba(179, 89, 106, 0.2);
+    background-color: #fffefe;
+}
+
+/* Tùy biến hệ thống nút bấm đồng bộ */
+.btn-custom-success {
+    background-color: #b3596a;
+    border-color: #b3596a;
+    color: white;
+}
+.btn-custom-success:hover {
+    background-color: #944352;
+    border-color: #944352;
+    color: white;
+}
+.btn-custom-warning {
+    background-color: #e396a5;
+    border-color: #e396a5;
+    color: white;
+}
+.btn-custom-warning:hover {
+    background-color: #cf7e8e;
+    border-color: #cf7e8e;
+    color: white;
+}
+.btn-custom-info {
+    background-color: #f5e4e7;
+    border-color: #e6cbd0;
+    color: #613038;
+}
+.btn-custom-info:hover {
+    background-color: #ebd1d5;
+    border-color: #d6b4bb;
+}
+
+/* Thiết kế lại bảng biểu (Table) hiển thị danh sách */
+.custom-table {
+    background-color: white;
+}
+.custom-table thead {
+    background-color: #b3596a !important;
+    color: white !important;
+}
+.custom-table th {
+    font-weight: 500;
+    padding: 14px;
+}
+.custom-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f5dee2;
+}
+
+/* Custom riêng khung hiển thị Modal thông tin chi tiết */
+.custom-modal {
+    border-radius: 14px;
+    border: 2px solid #f7b5c2;
+}
+.custom-modal .modal-header {
+    background-color: #fff0f2;
+    color: #b3596a;
+    border-bottom: 1px solid #f7b5c2;
+}
